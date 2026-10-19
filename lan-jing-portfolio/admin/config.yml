@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "homepage"
+    label: "首頁文案與 Slogan"
+    files:
+      - file: "content/homepage.json"
+        label: "首頁 Slogan"
+        name: "slogan_settings"
+        fields:
+          - { label: "主 Slogan", name: "main_slogan", widget: "string", default: "以人為本，築形於質。" }
+          - { label: "副標題 (Sub-Slogan)", name: "sub_slogan", widget: "text", default: "結合幾何結構與日式侘寂美學，為空間賦予平靜而俐落的生命力。" }
+
+  - name: "projects"
+    label: "作品集管理"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "專案名稱", name: "title", widget: "string" }
+      - { label: "專案類別與年份", name: "category", widget: "string", default: "Residential • 2026" }
+      - { label: "封面完工照片", name: "thumbnail", widget: "image" }
+      - { label: "專案描述", name: "description", widget: "text" }
